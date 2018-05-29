@@ -1,0 +1,30 @@
+{
+  "name": "my-first-project-brain-games",
+  "version": "1.0.0",
+  "description": "It is a collection of brain games.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "babel-node": "babel-node",
+    "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
+    "prepublishOnly": "npm run build"
+  },
+  "bin": {
+    "brain-games": "dist/bin/brain-games.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "author": "Yulia Popova",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/randomchenko/project-lvl1-s280.git"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1"
+  }
+}
