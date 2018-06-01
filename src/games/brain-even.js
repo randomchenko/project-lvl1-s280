@@ -1,29 +1,14 @@
-import readlineSync from 'readline-sync';
+import { cons } from 'hexlet-pairs';
+import { makeGame } from '..';
 
-const getRandomNumber = () =>
-  Math.floor(Math.random() * 100) + 1;
+const getRandomNumber = () => Math.floor(Math.random() * 100) + 1;
+const rule = 'Answer "yes" if number even otherwise answer "no".';
+const even = () => {
+  const number = getRandomNumber();
+  const rightAnswer = number % 2 === 0 ? 'yes' : 'no';
+  const question = `${number}`;
 
-const isEven = num => (num % 2 === 0);
-const attemptsNumber = 3;
-
-const brainEven = () => {
-  console.log('Welcome to the Brain Games!');
-  console.log('Answer "yes" if number even otherwise answer "no".\n');
-  const actual = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${actual}\n`);
-  for (let i = 0; i < attemptsNumber; i += 1) {
-    const number = getRandomNumber();
-    console.log(`Question: ${number}`);
-    const answer = isEven(Number(number)) ? 'yes' : 'no';
-    const userAnswer = readlineSync.question('Your answer: ');
-    if (answer === userAnswer) {
-      console.log('Correct!');
-    } else {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer is ${answer} \nLet's try again, ${actual}!`);
-      return;
-    }
-  }
-  console.log(`Congratulations, ${actual}`);
+  return cons(question, rightAnswer);
 };
 
-export default brainEven;
+export default () => makeGame(even, rule);

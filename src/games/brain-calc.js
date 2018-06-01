@@ -1,36 +1,27 @@
-import readlineSync from 'readline-sync';
+import { cons } from 'hexlet-pairs';
+import { makeGame } from '..';
 
-const brainCalc = () => {
-  const getRandomNumber = () =>
-    Math.floor(Math.random() * 100) + 1;
-  console.log('Welcome to the Brain Games!');
-  console.log('What is the result of the expression?\n');
-  const user = readlineSync.question('May I have your name?\n');
-  console.log(`Hello, ${user}!`);
+const rule = 'What is the result of the expression?';
+const getRandomNumber = (max, min) => Math.floor(Math.random() * max) + min;
 
-  const attemptsNumber = 3;
-  for (let i = 0; attemptsNumber > i; i += 1) {
-    let sign = '';
-    if (i === 0) {
-      sign = '+';
-    } else if (i === 1) {
-      sign = '-';
-    } else {
-      sign = '*';
-    }
-    const first = getRandomNumber();
-    const second = getRandomNumber();
-    const rightAnswer = eval(`${first} ${sign} ${second}`);
-    console.log(`Question: ${first} ${sign} ${second}`);
-    const usersAnswer = readlineSync.question('Your answer: ');
-    if (String(rightAnswer) === String(usersAnswer)) {
-      console.log('Correct!');
-    } else {
-      console.log(`'${user}' is wrong answer ;(. Correct answer is ${rightAnswer} \nLet's try again, ${user}!`);
-      return;
-    }
+const calc = () => {
+  const number1 = getRandomNumber(100, 1);
+  const number2 = getRandomNumber(100, 1);
+  const sign = getRandomNumber(3, 1);
+  let question = '';
+  let rightAnswer = 0;
+  if (sign === 1) {
+    question = `${number1} * ${number2}`;
+    rightAnswer = number1 * number2;
+  } else if (sign === 2) {
+    question = `${number1} - ${number2}`;
+    rightAnswer = number1 - number2;
+  } else if (sign === 3) {
+    question = `${number1} + ${number2}`;
+    rightAnswer = number1 + number2;
   }
-  console.log(`Congratulations, ${user}`);
+
+  return cons(question, rightAnswer);
 };
 
-export default brainCalc;
+export default () => makeGame(calc, rule);
