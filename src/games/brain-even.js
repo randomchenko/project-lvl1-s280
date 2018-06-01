@@ -1,12 +1,12 @@
 import { cons } from 'hexlet-pairs';
 import { makeGame } from '..';
+import getRandomNumber from '../utils';
 
-const getRandomNumber = () => Math.floor(Math.random() * 100) + 1;
 const rule = 'Answer "yes" if number even otherwise answer "no".';
 const even = () => {
-  const number = getRandomNumber();
-  const rightAnswer = number % 2 === 0 ? 'yes' : 'no';
-  const question = `${number}`;
+  const question = getRandomNumber(1, 100);
+  let rightAnswer = question % 2 === 0 ? 'yes' : 'no';
+  rightAnswer = String(rightAnswer);
 
   return cons(question, rightAnswer);
 };

@@ -15,7 +15,7 @@ const playGame = (makeTask, taskCounter) => {
   console.log(`Question: ${question}`);
   const userAnswer = readlineSync.question('Your answer: ');
 
-  if (String(userAnswer) === String(rightAnswer)) {
+  if (userAnswer === rightAnswer) {
     console.log('Correct!');
     return playGame(makeTask, taskCounter - 1);
   }
