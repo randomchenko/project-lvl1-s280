@@ -4,27 +4,21 @@ import getRandomNumber from '../utils';
 
 const rule = 'Is this number prime?';
 const isPrime = (question) => {
-  let rightAnswer = '';
-  if (question < 4) {
-    rightAnswer = 'yes';
-    return rightAnswer;
+  if (question < 4 || question % 2 === 0) {
+    return true;
   }
   const maxDivisor = Math.floor(Math.sqrt(question));
-  for (let j = 2; j <= maxDivisor; j += 1) {
+  for (let j = 3; j <= maxDivisor; j += 1) {
     if (question % j === 0) {
-      rightAnswer = 'no';
+      return false;
     }
   }
-
-  if (rightAnswer === '') {
-    rightAnswer = 'yes';
-  }
-  return rightAnswer;
+  return true;
 };
 
 const prime = () => {
   const question = getRandomNumber(1, 100);
-  const rightAnswer = isPrime(question);
+  const rightAnswer = isPrime(question) ? 'yes' : 'no';
   return cons(question, rightAnswer);
 };
 export default () => makeGame(prime, rule);
