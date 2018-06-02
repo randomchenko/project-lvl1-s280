@@ -4,7 +4,6 @@ import getRandomNumber from '../utils';
 
 const rule = 'What number is missing in this progression?';
 
-
 const progress = () => {
   const progression = [];
   const step = getRandomNumber(1, 10);

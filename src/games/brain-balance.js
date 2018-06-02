@@ -4,8 +4,7 @@ import getRandomNumber from '../utils';
 
 const rule = 'Balance the given number.';
 
-const balance = () => {
-  const question = getRandomNumber(1, 10000);
+const createBalancedNumber = (question) => {
   let rightAnswer = '';
   if (question < 10) {
     rightAnswer = String(question);
@@ -27,6 +26,13 @@ const balance = () => {
       rightAnswer += String(bigNumber);
     }
   }
+  return rightAnswer;
+};
+
+const balance = () => {
+  let question = getRandomNumber(1, 10000);
+  const rightAnswer = createBalancedNumber(question);
+  question = `${question}`;
 
   return cons(question, rightAnswer);
 };

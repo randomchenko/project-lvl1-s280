@@ -30,8 +30,8 @@ export const makeGame = (makeTask, rule) => {
     userName = 'anonim';
   }
   console.log(`Hello, ${userName}!\n`);
-  const result = playGame(makeTask, numberOfTasks);
-  if (result) {
+  const isWin = playGame(makeTask, numberOfTasks);
+  if (isWin) {
     console.log(`Congratulations, ${userName}!`);
   } else {
     console.log(`Let's try again, ${userName}!`);

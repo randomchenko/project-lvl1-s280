@@ -10,15 +10,21 @@ const calc = () => {
   const sign = getRandomNumber(1, 3);
   let question = '';
   let rightAnswer = 0;
-  if (sign === 1) {
-    question = `${number1} * ${number2}`;
-    rightAnswer = String(number1 * number2);
-  } else if (sign === 2) {
-    question = `${number1} - ${number2}`;
-    rightAnswer = String(number1 - number2);
-  } else if (sign === 3) {
-    question = `${number1} + ${number2}`;
-    rightAnswer = String(number1 + number2);
+  switch (sign) {
+    case 1:
+      question = `${number1} * ${number2}`;
+      rightAnswer = String(number1 * number2);
+      break;
+    case 2:
+      question = `${number1} - ${number2}`;
+      rightAnswer = String(number1 - number2);
+      break;
+    case 3:
+      question = `${number1} + ${number2}`;
+      rightAnswer = String(number1 + number2);
+      break;
+    default:
+      break;
   }
 
   return cons(question, rightAnswer);
