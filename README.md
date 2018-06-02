@@ -6,11 +6,9 @@ Brain Games
 =======
 A collection of games that are launched from the console.
 ## Installation
----
   1. Install node.js
   2. npm install -g my-first-project-brain-games
 ## Game
----
 Available games:brain-even, brain-gcd, brain-balance, brain-calc, brain-prime.
 
 You can start playing when you type the name of one of the games in the console
