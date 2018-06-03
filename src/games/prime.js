@@ -3,16 +3,16 @@ import { makeGame } from '..';
 import getRandomNumber from '../utils';
 
 const rule = 'Is this number prime?';
-const isPrime = (question) => {
-  if (question === 2) {
+const isPrime = (number) => {
+  if (number === 2) {
     return true;
   }
-  if (question <= 1 || question % 2 === 0) {
+  if (number <= 1 || number % 2 === 0) {
     return false;
   }
-  const maxDivisor = Math.floor(Math.sqrt(question));
-  for (let j = 3; j <= maxDivisor; j += 1) {
-    if (question % j === 0) {
+  const maxDivisor = Math.floor(Math.sqrt(number));
+  for (let j = 3; j <= maxDivisor; j += 2) {
+    if (number % j === 0) {
       return false;
     }
   }
